@@ -109,6 +109,10 @@ While not HomeKit specific, good amount of troubleshooting information for flash
 ## Other
 Device runs a webserver on HTTP port **5556**
 
+### What´s that?!
+This is a fork of Maxim Kulkins esp32-homekit-camera. Actually is this Repo a Playground for me to understand µC, some Languages and workflow of smart devices.
+and perhaps... can i modify my logitech alert 700 too ;)
+
 ### thanks to...
 
 * Thanks to [Maxim Kulkin](https://github.com/maximkulkin) for the "esp32-homekit-camera"
@@ -116,8 +120,8 @@ Device runs a webserver on HTTP port **5556**
 * Thanks to [StudioPieters](https://github.com/AchimPieters) for "Button-Event" 
 
 ### next milestones:
-* motion sensor (dummy or photo detection)
+* motion sensor (dummy or photo detection, let us show)
 * button event for service notification
 * add custom characteristics for homekit secure video
-* edit Kconfig for multiple Accessories
+* edit Kconfig for optional Accessory Names / Service Names
 
