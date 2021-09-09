@@ -1,6 +1,6 @@
-# esp32-homekit-camera
+# esp32-homekit-videodoorbell
 
-Firmware for esp32-camera module to act as Apple Homekit IP camera.
+Firmware for esp32-camera module to act as Apple Homekit Video Doorbell.
 
 Based on [esp-homekit](https://github.com/maximkulkin/esp-homekit).
 
@@ -116,7 +116,8 @@ Device runs a webserver on HTTP port **5556**
 * Thanks to [StudioPieters](https://github.com/AchimPieters) for "Button-Event" 
 
 ### next milestones:
-* speaker characteristic for rtsp stream (solved)
-* motion sensor service
-* button event
+* motion sensor (dummy or photo detection)
+* button event for service notification
+* add custom characteristics for homekit secure video
+* edit Kconfig for multiple Accessories
 
