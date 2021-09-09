@@ -2,7 +2,7 @@
 
 Firmware for esp32-camera module to act as Apple Homekit Video Doorbell.
 
-Based on [esp-homekit](https://github.com/maximkulkin/esp-homekit).
+Based on [esp-homekit](https://github.com/maximkulkin/esp-homekit) & [esp32-homekit-camera](https://github.com/maximkulkin/esp32-homekit-camera).
 
 ## Prerequisites
 
