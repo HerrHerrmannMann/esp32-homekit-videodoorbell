@@ -1,0 +1,18 @@
+[submodule "components/button"]
+	path = components/button
+	url = https://github.com/espressif/esp-homekit-sdk
+[submodule "components/cJSON"]
+	path = components/cJSON
+	url = https://github.com/maximkulkin/esp-cjson
+[submodule "components/wolfssl"]
+	path = components/wolfssl
+	url = https://github.com/maximkulkin/esp-wolfssl
+[submodule "components/homekit"]
+	path = components/homekit
+	url = https://github.com/maximkulkin/esp-homekit
+[submodule "components/http-parser"]
+	path = components/http-parser
+	url = https://github.com/maximkulkin/esp-http-parser.git
+[submodule "components/esp32-camera"]
+	path = components/esp32-camera
+	url = https://github.com/espressif/esp32-camera.git
