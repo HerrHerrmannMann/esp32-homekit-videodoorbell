@@ -109,18 +109,17 @@ While not HomeKit specific, good amount of troubleshooting information for flash
 ## Other
 Device runs a webserver on HTTP port **5556**
 
-### What´s that?!
+## What´s that?!
 This is a fork of Maxim Kulkins esp32-homekit-camera. Actually is this Repo a Playground for me to understand µC, some Languages and workflow of smart devices.
 and perhaps... can i modify my logitech alert 700 too ;)
 
-### We have...
+## We have...
+* Accessory: Video Doorbell
+* Services: Camera_RTP_Stream_Managment, Doorbell, Microphone, Speaker
 
-Accessory: Video Doorbell
-Services: Camera_RTP_Stream_Managment, Doorbell, Microphone, Speaker
-
-### We need...
-Accessory: Motion Sensor (required for HKSV)
-Accessory: Programmable_Switch_Event (for Doorbell - Button Event, afaik i´m not sure if required!)
+## We need...
+* Accessory: Motion Sensor (required for HKSV)
+* Accessory: Programmable_Switch_Event (for Doorbell - Button Event, afaik i´m not sure if required!)
 
 ### thanks to...
 
