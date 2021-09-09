@@ -11,10 +11,10 @@ Based on [esp-homekit](https://github.com/maximkulkin/esp-homekit) & [esp32-home
 - Install esp-idf by following instructions on esp-idf project page (https://github.com/espressif/esp-idf#setting-up-esp-idf). 
 - At the end you should have xtensa-esp32-elf toolchain in your path and IDF_PATH environment variable pointing to esp-idf directory.
 
-### esp32-homekit-camera code
+### esp32-homekit-videodoorbell code
 
-- Clone this repository `git clone https://github.com/HerrHerrmannMann/esp32-homekit-camera.git`
-- Work out of this directory going forward `cd esp32-homekit-camera`
+- Clone this repository `git clone https://github.com/HerrHerrmannMann/esp32-homekit-videodoorbell.git`
+- Work out of this directory going forward `cd esp32-homekit-videodoorbell`
 - Initialize and sync all submodules (recursively) `git submodule update --init --recursive`
 
 ## Configuration
