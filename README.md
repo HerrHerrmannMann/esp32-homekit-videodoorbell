@@ -113,6 +113,15 @@ Device runs a webserver on HTTP port **5556**
 This is a fork of Maxim Kulkins esp32-homekit-camera. Actually is this Repo a Playground for me to understand µC, some Languages and workflow of smart devices.
 and perhaps... can i modify my logitech alert 700 too ;)
 
+### We have...
+
+Accessory: Video Doorbell
+Services: Camera_RTP_Stream_Managment, Doorbell, Microphone, Speaker
+
+### We need...
+Accessory: Motion Sensor (required for HKSV)
+Accessory: Programmable_Switch_Event (for Doorbell - Button Event, afaik i´m not sure if required!)
+
 ### thanks to...
 
 * Thanks to [Maxim Kulkin](https://github.com/maximkulkin) for the "esp32-homekit-camera"
@@ -124,4 +133,5 @@ and perhaps... can i modify my logitech alert 700 too ;)
 * button event for service notification
 * add custom characteristics for homekit secure video
 * edit Kconfig for optional Accessory Names / Service Names
+* edit Kconfig for optional Pin Setup (GPIO, PWM)
 
