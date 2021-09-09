@@ -1,8 +1,3 @@
-# esp32-homekit-videodoorbell
-native HomeKit Videodoorbell with ESP32-Cam
-
-based on:
-
 # esp32-homekit-camera
 
 Firmware for esp32-camera module to act as Apple Homekit IP camera.
@@ -98,6 +93,9 @@ network/Homekit settings.
 1. On Enter HomeKit Setup Code, enter setup code 
     * Default is `111-11-111`
     * Found in the HomeKit `Configuration` section above
+1. On Enter HomeKit Setup ID, enter setup ID 
+    * Default is `AZ09`
+    * Found in the HomeKit `Configuration` section above
 1. Click `Continue` button
 1. Select camera location, continue
 1. Enter camera name, continue
@@ -113,5 +111,12 @@ Device runs a webserver on HTTP port **5556**
 
 ### thanks to...
 
-Thanks to [Maxim Kulkin](https://github.com/maximkulkin) for the "esp32-homekit-camera"
-Thanks to [HomeKidd](https://github.com/HomeKidd) for the "Motion-Sensor"
+* Thanks to [Maxim Kulkin](https://github.com/maximkulkin) for the "esp32-homekit-camera"
+* Thanks to [HomeKidd](https://github.com/HomeKidd) for the "Motion-Sensor"
+* Thanks to [StudioPieters](https://github.com/AchimPieters) for "Button-Event" 
+
+### next milestones:
+* speaker characteristic for rtsp stream (solved)
+* motion sensor service
+* button event
+

@@ -1,0 +1,444 @@
+menu "ESP32 HomeKit Camera"
+
+config ESP_WIFI_SSID
+    string "WiFi SSID"
+    default "MyWifi"
+    help
+    SSID (network name) for the example to connect to.
+
+config ESP_WIFI_PASSWORD
+    string "WiFi Password"
+    default ""
+    help
+    WiFi password (WPA or WPA2) for the example to use.
+
+config XCLK_FREQ
+    int "XCLK Frequency"
+    default "20000000"
+    help
+        The XCLK Frequency in Herz.
+
+choice CAMERA_MODEL
+    bool "Select Camera Pinout"
+    default CAMERA_MODEL_WROVER_KIT
+    help
+        Select Camera Pinout.
+
+config CAMERA_MODEL_WROVER_KIT
+    bool "WROVER-KIT With OV2640 Module"
+config CAMERA_MODEL_ESP_EYE
+    bool "ESP_EYE DevKit"
+config CAMERA_MODEL_M5STACK_PSRAM
+    bool "M5Stack Camera With PSRAM"
+config CAMERA_MODEL_AI_THINKER
+    bool "ESP32-CAM by AI-Thinker"
+config CAMERA_MODEL_TTGO_V1_7
+    bool "TTGO CAM v1.7"
+config CAMERA_MODEL_DIYMORE
+    bool "ESP32-CAM by DIYMore"
+config CAMERA_MODEL_CUSTOM
+    bool "Custom Camera Pinout"
+endchoice
+
+menu "Custom Camera Pins"
+    depends on CAMERA_MODEL_CUSTOM
+
+config CAMERA_PIN_PWDN
+    depends on CAMERA_MODEL_CUSTOM
+    int "Power Down pin"
+    range -1 33
+    default -1
+    help
+        Select Power Down pin or -1 for unmanaged.
+
+config CAMERA_PIN_RESET
+    depends on CAMERA_MODEL_CUSTOM
+    int "Reset pin"
+    range -1 33
+    default -1
+    help
+        Select Camera Reset pin or -1 for software reset.
+
+config CAMERA_PIN_XCLK
+    depends on CAMERA_MODEL_CUSTOM
+    int "XCLK pin"
+    range 0 33
+    default 21
+    help
+        Select Camera XCLK pin.
+
+config CAMERA_PIN_SIOD
+    depends on CAMERA_MODEL_CUSTOM
+    int "SIOD pin"
+    range 0 33
+    default 26
+    help
+        Select Camera SIOD pin.
+
+config CAMERA_PIN_SIOC
+    depends on CAMERA_MODEL_CUSTOM
+    int "SIOC pin"
+    range 0 33
+    default 27
+    help
+        Select Camera SIOC pin.
+
+config CAMERA_PIN_VSYNC
+    depends on CAMERA_MODEL_CUSTOM
+    int "VSYNC pin"
+    range 0 39
+    default 25
+    help
+        Select Camera VSYNC pin.
+
+config CAMERA_PIN_HREF
+    depends on CAMERA_MODEL_CUSTOM
+    int "HREF pin"
+    range 0 39
+    default 23
+    help
+        Select Camera HREF pin.
+
+config CAMERA_PIN_PCLK
+    depends on CAMERA_MODEL_CUSTOM
+    int "PCLK pin"
+    range 0 39
+    default 25
+    help
+        Select Camera PCLK pin.
+
+config CAMERA_PIN_D0
+    depends on CAMERA_MODEL_CUSTOM
+    int "Y2 pin"
+    range 0 39
+    default 4
+    help
+        Select Camera Y2 pin.
+
+config CAMERA_PIN_D1
+    depends on CAMERA_MODEL_CUSTOM
+    int "Y3 pin"
+    range 0 39
+    default 5
+    help
+        Select Camera Y3 pin.
+
+config CAMERA_PIN_D2
+    depends on CAMERA_MODEL_CUSTOM
+    int "Y4 pin"
+    range 0 39
+    default 18
+    help
+        Select Camera Y4 pin.
+
+config CAMERA_PIN_D3
+    depends on CAMERA_MODEL_CUSTOM
+    int "Y5 pin"
+    range 0 39
+    default 19
+    help
+        Select Camera Y5 pin.
+
+config CAMERA_PIN_D4
+    depends on CAMERA_MODEL_CUSTOM
+    int "Y6 pin"
+    range 0 39
+    default 36
+    help
+        Select Camera Y6 pin.
+
+config CAMERA_PIN_D5
+    depends on CAMERA_MODEL_CUSTOM
+    int "Y7 pin"
+    range 0 39
+    default 39
+    help
+        Select Camera Y7 pin.
+
+config CAMERA_PIN_D6
+    depends on CAMERA_MODEL_CUSTOM
+    int "Y8 pin"
+    range 0 39
+    default 34
+    help
+        Select Camera Y8 pin.
+
+config CAMERA_PIN_D7
+    depends on CAMERA_MODEL_CUSTOM
+    int "Y9 pin"
+    range 0 39
+    default 35
+    help
+        Select Camera Y9 pin.
+
+endmenu
+
+menu "Custom GPIO Config"
+
+config LED_PIN
+    int "LED pin"
+    range -1 39
+    default "-1"
+    help
+        Select "LED pin". Set to -1 (default) to disable.
+
+choice LED_ACTIVE_STATE
+    bool "LED active state"
+    default LED_ACTIVE_LOW
+    help
+        Set GPIO pin level "LED pin" to HIGH or LOW (default).
+
+config LED_ACTIVE_HIGH
+    bool "HIGH"
+    help
+        "LED pin" is HIGH when GPIO pin level is set.
+
+config LED_ACTIVE_LOW
+    bool "LOW"
+    help
+        "LED pin" is LOW when GPIO pin level is set.
+
+endchoice
+
+config FLASHLED_PIN
+    int "FlashLED pin"
+    range -1 39
+    default "-1"
+    help
+        Select "FlashLED pin". Set to -1 (default) to disable.
+
+choice FLASHLED_ACTIVE_STATE
+    bool "FlashLED active state"
+    default FLASHLED_ACTIVE_HIGH
+    help
+        Set GPIO pin level "FlashLED pin" to HIGH or LOW (default).
+
+config FLASHLED_ACTIVE_HIGH
+    bool "HIGH"
+    help
+        "FlashLED pin" is HIGH when GPIO pin level is set.
+
+config FLASHLED_ACTIVE_LOW
+    bool "LOW"
+    help
+        "FlashED pin" is LOW when GPIO pin level is set.
+
+endchoice
+
+config DOORBELL_BUTTON
+    int "DoorBell Button"
+    range -1 39
+    default "-1"
+    help
+        Select "DoorBell Button". Set to -1 (default) to disable.
+
+choice DOORBELL_ACTIVE_STATE
+    bool "DOORBELL active state"
+    default DOORBELL_ACTIVE_HIGH
+    help
+        Set GPIO pin level "DoorBell Button" to HIGH (default) or LOW.
+
+config DOORBELL_ACTIVE_HIGH
+    bool "HIGH"
+    help
+        "DoorBell Button" is HIGH when GPIO pin level is set.
+
+config DOORBELL_ACTIVE_LOW
+    bool "LOW"
+    help
+        "DoorBell Button" is LOW when GPIO pin level is set.
+
+endchoice
+
+config DOORLOCK_RELAY
+    int "DoorLock Relay"
+    range -1 39
+    default "-1"
+    help
+        Select "DoorLock Relay". Set to -1 (default) to disable.
+
+choice DOORLOCK_ACTIVE_STATE
+    bool "DOORLOCK active state"
+    default DOORLOCK_ACTIVE_LOW
+    help
+        Set GPIO pin level "DoorLock Relay" to HIGH or LOW (default).
+
+config DOORLOCK_ACTIVE_HIGH
+    bool "HIGH"
+    help
+        "DoorLock Relay" is HIGH when GPIO pin level is set.
+
+config DOORLOCK_ACTIVE_LOW
+    bool "LOW"
+    help
+        "DoorLock Relay" is LOW when GPIO pin level is set.
+
+endchoice
+
+config DOOR_STATE
+    int "Door State"
+    range -1 39
+    default "-1"
+    help
+        Select "Door State". Set to -1 (default) to disable.
+
+choice DOOR_ACTIVE_STATE
+    bool "DOOR active state"
+    default DOOR_ACTIVE_HIGH
+    help
+        Set GPIO pin level "Door State" to HIGH (default) or LOW.
+
+config DOOR_ACTIVE_HIGH
+    bool "HIGH"
+    help
+        "Door State" is HIGH when GPIO pin level is set.
+
+config DOOR_ACTIVE_LOW
+    bool "LOW"
+    help
+        "Door State" is LOW when GPIO pin level is set.
+
+endchoice
+
+config TAMPER_STATE
+    int "Tamper State"
+    range -1 39
+    default "-1"
+    help
+        Select "Tamper State". Set to -1 (default) to disable.
+
+choice TAMPER_ACTIVE_STATE
+    bool "TAMPER active state"
+    default TAMPER_ACTIVE_LOW
+    help
+        Set GPIO pin level "Tamper State" to HIGH or LOW (default).
+
+config TAMPER_ACTIVE_HIGH
+    bool "HIGH"
+    help
+        "Tamper State" is HIGH when GPIO pin level is set.
+
+config TAMPER_ACTIVE_LOW
+    bool "LOW"
+    help
+        "Tamper State"n" is LOW when GPIO pin level is set.
+
+endchoice
+
+config FLASHLED_BUTTON
+    int "FlashLED Button"
+    range -1 39
+    default "-1"
+    help
+        Select "FlashLED Button". Set to -1 (default) to disable.
+
+choice FLASHLED_ACTIVE_STATE
+    bool "FLASHLED active state"
+    default FLASHLED_ACTIVE_HIGH
+    help
+        Set GPIO pin level "FlashLED Button" to HIGH (default) or LOW.
+
+config FLASHLED_ACTIVE_HIGH
+    bool "HIGH"
+    help
+        "FlashLED Button" is HIGH when GPIO pin level is set.
+
+config FLASHLED_ACTIVE_LOW
+    bool "LOW"
+    help
+        "FlashLED Button" is LOW when GPIO pin level is set.
+
+endchoice
+
+endmenu
+
+menu "HomeKit Setup Options"
+# HomeKit setup options
+config ESP_HOMEKIT_DEVICE_SETUP_CODE
+    string "HomeKit Device Setup Code"
+    default "111-11-111"
+    help
+    HomeKit Setup Code for the example to use.
+
+config ESP_HOMEKIT_DEVICE_SETUP_ID
+    string "HomeKit Device Setup ID"
+    default "AZ09"
+    help
+    HomeKit Setup ID for the example to use.
+
+config ESP_HOMEKIT_DEVICE_ACCESSORY_NAME
+    string "HomeKit Device Accessory Name"
+    default "defaultDevice"
+    help
+    HomeKit Device Accessory Name the example to use.
+
+config ESP_HOMEKIT_DEVICE_MANUFACTURER
+    string "HomeKit Device Manufacturer"
+    default "defaultManufacturer"
+    help
+    HomeKit Manufacturer Name the example to use.
+
+config ESP_HOMEKIT_DEVICE_MODEL_NAME
+    string "HomeKit Device Model Name"
+    default "defaultModel"
+    help
+    HomeKit Device Model Name the example to use.
+
+config ESP_HOMEKIT_DEVICE_SERIAL_NUMBER
+    string "HomeKit Device Serial number"
+    default "0:A-9:H.1337"
+    help
+    HomeKit Serial Number the example to use.
+
+config ESP_HOMEKIT_DEVICE_FIRMWARE_VERSION
+    string "HomeKit Device Firmware version"
+    default "0.00.1337"
+    help
+    HomeKit Firmware Version Number the example to use.
+
+
+menu "optional Setup Service Names"
+# optional setup service names
+config ESP_HOMEKIT_DEVICE_SERVICE_NAME_DOORBELL
+    string "HomeKit Device Service Name Doorbell"
+    default "defaultDoorbell"
+    help
+    HomeKit Device Accessory Name the example to use.
+
+config ESP_HOMEKIT_DEVICE_SERVICE_NAME_MICROPHONE
+    string "HomeKit Device Service Name Microphone"
+    default "defaultMic"
+    help
+    HomeKit Device Accessory Name the example to use.
+
+config ESP_HOMEKIT_DEVICE_SERVICE_NAME_SPEAKER
+    string "HomeKit Device Service Name Speaker"
+    default "defaultSpk"
+    help
+    HomeKit Device Accessory Name the example to use.
+endmenu 
+
+endmenu
+
+# Option to change vertical video orientation
+config ESP_SET_VFLIP
+    bool "Image sensor vertical flip"
+    default n
+    help
+        Enable image vertical flip
+
+# Option to change horizontal mirror video orientation
+config ESP_SET_HMIRROR
+    bool "Image sensor horizontal mirror"
+    default n
+    help
+        Enable image horizontal mirror
+
+# Option to enhance image
+config ESP_SET_ENHANCE_IMAGE
+    bool "Image sensor enhance settings"
+    default n
+    help
+        Enable image enhancement by adjusting settings such as contrast, saturation, etc
+
+endmenu
